@@ -1,0 +1,72 @@
+.design_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 854px;
+    width: 1000px;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    background-image: url(./images/design.png);
+}
+
+.design_image_hidden {
+    display: none;
+}
+
+.design_panel {
+    position: absolute;
+    top: 75px;
+    right: 22px;
+    width: 145px;
+    padding: 4px;
+    text-align: right;
+    background: #fbfbfb;
+    border: solid 1px #a0a0a0;
+}
+
+.design_panel.design_panel_hidden {
+    display: none;
+}
+
+.design_togleButton {
+    width: 60px;
+    margin: 0 8px 5px 0;
+}
+
+.design_controls {
+    color: gray;
+    text-align: right;
+}
+
+.design_control {
+    margin-bottom: 3px;
+}
+
+.design_positionInput {
+    width: 52px;
+}
+
+.design_opacityInput {
+    width: 42px;
+    margin-right: 26px;
+}
+
+.design_panel.design_panel_compact {
+    background: transparent;
+    border: none;
+    width: auto;
+
+    .design_controls {
+        display: none;
+    }
+
+    .design_togleButton {
+        opacity: 0.5;
+    }
+
+    .design_togleButton:hover {
+        opacity: 1;
+    }
+}
