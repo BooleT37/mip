@@ -1,0 +1,10 @@
+{
+    "rules": {
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": true,
+        "object-literal-key-quotes": [true, "consistent-as-needed"],
+        "quotemark": [true, "double"]
+    }
+}

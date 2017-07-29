@@ -1,15 +1,16 @@
-<!doctype html>
+<% var prefix = model.production ? "/dist" : "http://localhost:8081/dist" %>
 
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
 
   <title>Малое Инновационное предприятие</title>
   <meta name="author" content="Alexey Levin">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="<%=prefix%>/bundle.css">
 </head>
 
 <body>
-  <script src="dist/bundle.js"></script>
+  <script src="<%=prefix%>/bundle.js"></script>
 </body>
 </html>
