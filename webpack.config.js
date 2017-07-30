@@ -1,24 +1,35 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const devServerPort = 8081;
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
+
+const DEV_SERVER_PORT = 8081;
 
 const dist = path.resolve(__dirname, "dist");
 
+const PUBLIC_PATH = IS_PRODUCTION ? "/dist/" : `http://localhost:${DEV_SERVER_PORT}/dev-server-dist/`;
+
 const fileLoaderSettings = {
   name: "[name]-[hash].[ext]",
-  publicPath: "/dist/",
+  publicPath: PUBLIC_PATH,
   outputPath: "file-loader/"
 };
 
 const urlLoaderSettings = Object.assign(fileLoaderSettings, { limit: 100000 });
 
-module.exports = {
+const lessLoaders = IS_PRODUCTION
+  ? ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: ["css-loader?sourceMap", "less-loader?sourceMap"]
+  })
+  : ["style-loader", "css-loader?sourceMap", "less-loader?sourceMap"];
+
+const config = {
   entry: "./src/entry",
   output: {
-    path: dist,
     filename: "bundle.js",
-    publicPath: "./"
+    path: dist,
+    publicPath: PUBLIC_PATH
   },
   resolve: {
     modules: ["node_modules"],
@@ -30,35 +41,30 @@ module.exports = {
   },
   devtool: "source-map",
   devServer: {
-    publicPath: "/dist/",
+    publicPath: "/dev-server-dist/",
     host: "localhost",
-    port: devServerPort,
+    port: DEV_SERVER_PORT,
     headers: {
       "Access-Control-Allow-Origin": "*"
     }
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?/,
-        loaders: [
+        use: [
           "babel-loader",
           "awesome-typescript-loader"
         ]
       },
       // {
       //   test: /\.js/,
-      //   loaders: [
-      //     "babel-loader"
-      //   ],
-      //   include: path.resolve(__dirname, "src")
+      //   loader: "babel-loader",
+      //   exclude: path.resolve(__dirname, "node_modules")
       // },
       {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ["css-loader?sourceMap", "less-loader?sourceMap"]
-        }),
+        use: lessLoaders,
         include: [path.resolve(__dirname, "src")]
       },
       {
@@ -72,8 +78,13 @@ module.exports = {
         options: fileLoaderSettings
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin({ filename: "bundle.css", allChunks: true }),
-  ]
+  }
 };
+
+if (IS_PRODUCTION) {
+  config.plugins = [
+    new ExtractTextPlugin({ filename: "bundle.css", allChunks: true })
+  ];
+}
+
+module.exports = config;

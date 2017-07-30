@@ -11,16 +11,18 @@ interface IDesignState {
     isPanelShown: boolean;
 }
 
+const LETTER_D_KEY_CODE = 68;
+
 export default class Design extends React.Component<undefined, IDesignState> {
     constructor() {
         super();
 
         this.state = {
             isShown: false,
-            left: -903,
+            left: 0,
             top: 0,
             opacity: 0.5,
-            isPanelShown: false
+            isPanelShown: true
         };
 
         this.onToggleButtonClick = this.onToggleButtonClick.bind(this);
@@ -31,8 +33,7 @@ export default class Design extends React.Component<undefined, IDesignState> {
 
     componentDidMount(): void {
         document.body.addEventListener("keydown", event => {
-            //Alt + Shift + D
-            if (event.altKey && event.shiftKey && event.keyCode === 68) {
+            if (event.altKey && event.shiftKey && event.keyCode === LETTER_D_KEY_CODE) {
                 this.setState({ isPanelShown: !this.state.isPanelShown });
             }
         });

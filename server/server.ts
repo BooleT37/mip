@@ -4,10 +4,12 @@ const app = express();
 
 app.set("views", process.cwd() + "\\server\\templates");
 
-app.use(express.static("dist"));
+app.use("/dist", express.static("dist"));
 
 app.get("/", function (req, res) {
-  res.render("index.ejs", { model: { production: process.env.NODE_ENV === "production" } });
+  //trim() важен, потому что на Windows команда SET NODE_ENV=production дописывает пробел в конце
+  const production = process.env.NODE_ENV && process.env.NODE_ENV.trim() === "production";
+  res.render("index.ejs", { model: { production } });
 });
 
 app.listen(3000, function () {
