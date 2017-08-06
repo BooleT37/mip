@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "description": "Landing page for mip",
-  "main": "server\\server.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "tsc ./server/server.ts && node ./server/server.js",
     "postinstall": "webpack -p",
     "webpack-watch": "set NODE_ENV=developement && webpack-dev-server",
-    "watch": "set NODE_ENV=developement && nodemon -e ts,js,html,ejs --exec .\\node_modules\\.bin\\ts-node -- .\\server\\server.ts"
+    "watch": "set NODE_ENV=developement && nodemon -e ts,js,html,ejs --exec ts-node -- ./server/server.ts"
   },
   "author": "Alexey Levin",
   "license": "ISC",
