@@ -12,10 +12,10 @@ app.use("/images", express.static("images"));
 
 app.get("/", function (req, res) {
   //trim() важен, потому что на Windows команда SET NODE_ENV=production дописывает пробел в конце
-  const production = process.env.NODE_ENV && process.env.NODE_ENV.trim() === "production";
+  const developement = process.env.NODE_ENV && process.env.NODE_ENV.trim() === "developement";
   const tileDao: ITileDao = new StubTileDao();
   const tiles = tileDao.getAll();
-  const model = new IndexViewModel(production, tiles);
+  const model = new IndexViewModel(developement, tiles);
   res.render("index.ejs", { model });
 });
 

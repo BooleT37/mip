@@ -1,4 +1,4 @@
-<% var prefix = model.production ? "/dist" : "http://localhost:8081/dev-server-dist" %>
+<% var prefix = model.developement ? "http://localhost:8081/dev-server-dist" : "/dist" %>
 
 <!doctype html>
 <html lang="en">
@@ -7,7 +7,7 @@
 
   <title>Малое Инновационное предприятие</title>
   <meta name="author" content="Alexey Levin">
-  <% if (model.production) { %>
+  <% if (!model.developement) { %>
     <link rel="stylesheet" href="<%=prefix%>/bundle.css">
   <% } %>
 </head>

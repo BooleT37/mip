@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as classnames from "classnames";
 
-import "./design.less";
+import "./Design.less";
 
 interface IDesignState {
     isShown: boolean;

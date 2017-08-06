@@ -1,11 +1,11 @@
 import TileModel from "./TileModel";
 
 export default class IndexViewModel {
-    production: boolean;
+    developement: boolean;
     tiles: TileModel[];
 
-    constructor(production: boolean, tiles: TileModel[]) {
-        this.production = production;
+    constructor(developement: boolean, tiles: TileModel[]) {
+        this.developement = developement;
         this.tiles = tiles;
     }
 }

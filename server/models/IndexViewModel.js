@@ -1,8 +1,8 @@
 "use strict";
 exports.__esModule = true;
 var IndexViewModel = (function () {
-    function IndexViewModel(production, tiles) {
-        this.production = production;
+    function IndexViewModel(developement, tiles) {
+        this.developement = developement;
         this.tiles = tiles;
     }
     return IndexViewModel;
