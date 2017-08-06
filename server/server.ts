@@ -3,6 +3,7 @@ import ITileDao from "./dao/ITileDao";
 import StubTileDao from "./dao/StubTileDao";
 import IndexViewModel from "./models/IndexViewModel";
 
+const port = process.env.PORT ? parseInt(process.env.PORT, 10) : "3000";
 const app = express();
 
 app.set("views", process.cwd() + "\\server\\templates");
@@ -19,6 +20,6 @@ app.get("/", function (req, res) {
   res.render("index.ejs", { model });
 });
 
-app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+app.listen(port, function () {
+  console.log(`Example app listening on port ${port}!`);
 });
