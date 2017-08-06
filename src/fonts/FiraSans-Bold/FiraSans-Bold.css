@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'FiraSans-Bold';
+	src: url('./FiraSans-Bold.eot');
+    src: url('./FiraSans-Bold.eot?#iefix') format('embedded-opentype'),
+         url('./FiraSans-Bold.otf') format('opentype'),
+         url('./FiraSans-Bold.woff') format('woff'),
+         url('./FiraSans-Bold.ttf') format('truetype');
+}

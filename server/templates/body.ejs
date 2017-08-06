@@ -1,2 +1,83 @@
 <div id="design-react-root"></div>
+<header>
+    <div class="logo"></div>
+    <nav>
+        <a href="#about" class="nav_link">О КОМПАНИИ</a>
+        <a href="#stages" class="nav_link">СТАДИИ ПРОЕКТОВ</a>
+        <a href="#spec" class="nav_link">СПЕЦИНСТРУМЕНТ</a>
+        <a href="#contacts" class="nav_link">КОНТАКТЫ</a>
+    </nav>
+</header>
+<div class="about">
+    <div class="about_caption"></div>
+    <div class="about_text">
+        <p>Мы занимаемся внедрением и коммерциализацией научных разработок в производственные циклы предприятий. Готовы проводить научно-исследовательские работы на площадях института, имеем большой парк современного и уникального лабораторного оборудования.</p>
+        <p>Проектируем и производим оборудование высокого давления для изостатического прессования.</p>
+        <p>Мы первыми в России начали применение данной технологии в пищевом секторе для увеличения сроков годности и обеззараживания продуктов (метод холодной пастеризации). Имеем большой опыт в производстве специнструмента, технологической оснастки и нестандартного оборудования по чертежам заказчика.</p>
+    </div>
+</div>
+<div class="stages">
+    <div class="stages_caption"></div><br/>
+    <div class="stages_description">
+        <div class="stages_description_img"></div>
+        <div class="stages_description_text">
+            <p class="stages_description_text_p1">Готовые к внедрению в производства</p>
+            <p class="stages_description_text_p2">Разработки находящиеся в высокой степени готовности</p>
+            <p class="stages_description_text_p3">Готовы решать сложные технологические задачи для Вашего производства, разработать способы внедрения новых технологий. Научные исследования проходят на площадях УрО РАН на современном оборудование, в короткие сроки.</p>
+        </div>
+    </div><br/>
+    <div class="stages_icons">
+        <div class="stages_icon_container">
+            <div class="stages_icon_image stages_icon_image_metallurgy"></div><br/>
+            <div class="stages_icon_caption">Металлургия</div>
+        </div>
+        <div class="stages_icon_container">
+            <div class="stages_icon_image stages_icon_image_mech"></div><br/>
+            <div class="stages_icon_caption">Машиностроение</div>
+        </div>
+        <div class="stages_icon_container">
+            <div class="stages_icon_image stages_icon_image_food"></div><br/>
+            <div class="stages_icon_caption">Пищевое производство</div>
+        </div>
+        <div class="stages_icon_container">
+            <div class="stages_icon_image stages_icon_image_oil"></div><br/>
+            <div class="stages_icon_caption">Нефтедобыча</div>
+        </div>
+        <div class="stages_icon_container">
+            <div class="stages_icon_image stages_icon_image_medicine"></div><br/>
+            <div class="stages_icon_caption">Медицина</div>
+        </div>
+        <div class="stages_icon_container">
+            <div class="stages_icon_image stages_icon_image_repair"></div><br/>
+            <div class="stages_icon_caption">Ремонт</div>
+        </div>
+    </div>
+    <div class="stages_tiles">
+        <% for (let tile of model.tiles) { %><!--
+         --><div class="stages_tile stages_tile_background_<%= tile.backgroundType.toString() %>">
+                <div class="stages_tile_color_overlay stages_tile_color_overlay_<%= tile.backgroundColor.toLowerCase() %>">
+                    <div class="stages_tile_icons">
+                        <% for (let icon of tile.icons) { %>
+                            <div class="stages_tile_icon stages_icon_image_<%= icon.name %>" title="<%= icon.caption %>"></div>
+                        <% } %>
+                    </div>
+                    <div class="stages_tile_caption<%= tile.fontSize === 'big' ? '' : ' stages_tile_caption_fontSize_' + tile.fontSize %>"><%= tile.caption %></div>
+                    <hr class="stages_tile_hr"/>
+                </div>
+            </div><!--
+     --><% } %>
+    </div>
+</div>
+<div class="specinstrument">
+    <div class="specinstrument_caption"></div><br/>
+</div>
+<div class="contacts">
+    <div class="contacts_caption"></div><br/>
+    <div class="contacts_text">
+        Почтовый адрес: 620142 г.Екатеринбург, ул. Щорса, 7<br/>
+        Телефон: (343) 269-57-92, (343) 214-90-67(5)<br/>
+        Факс: (343) 269-57-93<br/>
+        E-mail: <a class="contacts_email" href="mailto:sinto@sintoural.ru" target="_top">sinto@sintoural.ru</a>
+    </div>
+</div>
 <div id="modal-controller-react-root"></div>

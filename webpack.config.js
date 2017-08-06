@@ -17,6 +17,13 @@ const fileLoaderSettings = {
 
 const urlLoaderSettings = Object.assign(fileLoaderSettings, { limit: 100000 });
 
+const cssLoaders = IS_PRODUCTION
+  ? ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: ["css-loader?sourceMap"]
+  })
+  : ["style-loader", "css-loader?sourceMap"];
+
 const lessLoaders = IS_PRODUCTION
   ? ExtractTextPlugin.extract({
     fallback: "style-loader",
@@ -62,6 +69,11 @@ const config = {
       //   loader: "babel-loader",
       //   exclude: path.resolve(__dirname, "node_modules")
       // },
+      {
+        test: /\.css$/,
+        use: cssLoaders,
+        include: [path.resolve(__dirname, "src")]
+      },
       {
         test: /\.less$/,
         use: lessLoaders,

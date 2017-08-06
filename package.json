@@ -5,10 +5,9 @@
   "description": "Landing page for mip",
   "main": "index.js",
   "scripts": {
-    "dev": "SET NODE_ENV=development && nodemon .\\bin\\www",
     "webpack-watch": ".\\node_modules\\.bin\\webpack-dev-server",
     "start": "set NODE_ENV=production && tsc .\\server\\server.ts && node .\\server\\server.js",
-    "watch": "nodemon -e js,html,ejs --exec .\\node_modules\\.bin\\ts-node -- .\\server\\server.ts"
+    "watch": "nodemon -e ts,js,html,ejs --exec .\\node_modules\\.bin\\ts-node -- .\\server\\server.ts"
   },
   "author": "Alexey Levin",
   "license": "ISC",
