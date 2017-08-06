@@ -1,7 +1,88 @@
 :local {
-    .modal {
-        width: 200px;
-        height: 150px;
-        background-color: orange;
+    .root {
+        width: 1903px;
+        height: 1289px;
+        /* https://github.com/webpack-contrib/less-loader/issues/109#issuecomment-304036875 */
+        background-image: url(../Modal/images/background.png);
+        padding: 130px 32px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .close {
+        background-image: url(../Modal/images/close.png);
+        position: absolute;
+        top: 153px;
+        right: 55px;
+        width: 67px;
+        height: 67px;
+        cursor: pointer;
+    }
+
+    .caption {
+        font: 44px PTSans-Bold, sans-serif;
+        padding: 105px 100px 0;
+    }
+
+    .content {
+        text-align: left;
+    }
+
+    .photoPanel, .text {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .photoPanel {
+        height: 670px;
+        width: 757px;
+    }
+
+    .photo {
+        height: 470px;
+        width: 600px;
+        padding: 100px 63px 47px 94px;
+    }
+
+    .photoControls {
+        text-align: center;
+        margin-top: 23px;
+    }
+
+    .arrowLeft, .photoCaption, .arrowRight {
+        display: inline-block;
+        vertical-align: top;
+        height: 83px;
+    }
+
+    .arrowLeft, .arrowRight {
+        width: 53px;
+    }
+
+    .arrowLeft {
+        background-image: url(../Modal/images/arrow-left.png);
+    }
+
+    .arrowRight {
+        background-image: url(../Modal/images/arrow-right.png);
+    }
+
+    .photoCaption {
+        width: 500px;
+        font: 40px PTSans-BoldItalic, sans-serif;
+        font-style: italic;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+
+    .text {
+        max-width: 945px;
+        margin-top: 74px;
+        font: 21px PTSans-Web-Regular, sans-serif;
+        text-align: justify;
+
+        p {
+            text-indent: 45px;
+        }
     }
 }

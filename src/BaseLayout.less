@@ -4,6 +4,7 @@ body {
     min-height: 5189px; /* TODO: удалить */
     color: white;
     font: 24px PTSans-Web-Regular, sans-serif;
+    margin: 0
 }
 
 .logo {
@@ -12,12 +13,12 @@ body {
     background: url("./images/logo.png");
     width: 344px;
     height: 96px;
-    margin: 13px 0 0 126px;
+    margin: 21px 0 0 134px;
 }
 
 nav {
     float: right;
-    padding: 43px 148px 0 0;
+    padding: 51px 156px 0 0;
 }
 
 a.nav_link {
@@ -46,7 +47,7 @@ a.nav_link {
 
 .about_caption {
     display: inline-block;
-    margin: 120px 0 0 128px;
+    margin: 120px 0 0 136px;
     width: 361px;
     height: 83px;
     background-image: url("./images/about/about_caption.png");
@@ -54,7 +55,7 @@ a.nav_link {
 
 .about_text {
     font-size: 27px;
-    margin: 191px 0 0 132px;
+    margin: 191px 0 0 140px;
     max-width: 950px;
 }
 
@@ -106,7 +107,7 @@ a.nav_link {
 }
 
 .stages_icons {
-    height: 442px;
+    height: 190px;
 }
 
 .stages_icon_container {
@@ -151,12 +152,21 @@ a.nav_link {
     font-family: FiraSans-Regular, sans-serif;
 }
 
+.stages_tiles {
+    margin-top: 250px;
+}
+
 .stages_tile {
     display: inline-block;
     vertical-align: top;
     width: 317px;
     height: 293px;
     margin: 2px 3px;
+    cursor: pointer;
+}
+
+.stages_tile:hover {
+    box-shadow: 0px 0px 1px 1px #c9daff;
 }
 
 .stages_tile_background_1 {
@@ -272,4 +282,8 @@ a.nav_link {
     &:hover {
         text-decoration: underline;
     }
+}
+
+#modal-react-root {
+    position: absolute;
 }

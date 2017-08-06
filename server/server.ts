@@ -8,6 +8,7 @@ const app = express();
 app.set("views", process.cwd() + "\\server\\templates");
 
 app.use("/dist", express.static("dist"));
+app.use("/images", express.static("images"));
 
 app.get("/", function (req, res) {
   //trim() важен, потому что на Windows команда SET NODE_ENV=production дописывает пробел в конце

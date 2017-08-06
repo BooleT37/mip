@@ -52,9 +52,11 @@
             <div class="stages_icon_caption">Ремонт</div>
         </div>
     </div>
+    <div id="modal-react-root"></div>
     <div class="stages_tiles">
+        <% let i = 1; %>
         <% for (let tile of model.tiles) { %><!--
-         --><div class="stages_tile stages_tile_background_<%= tile.backgroundType.toString() %>">
+         --><div class="stages_tile stages_tile_background_<%= tile.backgroundType.toString() %>" data-id="<%= i %>">
                 <div class="stages_tile_color_overlay stages_tile_color_overlay_<%= tile.backgroundColor.toLowerCase() %>">
                     <div class="stages_tile_icons">
                         <% for (let icon of tile.icons) { %>
@@ -64,7 +66,7 @@
                     <div class="stages_tile_caption<%= tile.fontSize === 'big' ? '' : ' stages_tile_caption_fontSize_' + tile.fontSize %>"><%= tile.caption %></div>
                     <hr class="stages_tile_hr"/>
                 </div>
-            </div><!--
+            </div><% i++; %><!--
      --><% } %>
     </div>
 </div>
@@ -80,4 +82,3 @@
         E-mail: <a class="contacts_email" href="mailto:sinto@sintoural.ru" target="_top">sinto@sintoural.ru</a>
     </div>
 </div>
-<div id="modal-controller-react-root"></div>

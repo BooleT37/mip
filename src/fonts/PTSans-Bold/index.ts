@@ -1,0 +1,1 @@
+import "./PTSans-Bold.css";

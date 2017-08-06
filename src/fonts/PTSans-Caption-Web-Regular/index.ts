@@ -1,1 +1,0 @@
-import "./PTSans-Caption-Web-Regular.css";
