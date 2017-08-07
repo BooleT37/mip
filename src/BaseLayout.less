@@ -1,8 +1,6 @@
 body {
     background: url("./images/background.jpg") no-repeat;
-    min-width: 1640px;
-    max-width: 1920px;
-    min-height: 5189px; /* TODO: удалить */
+    width: 1903px;
     color: white;
     font: 24px PTSans-Web-Regular, sans-serif;
     margin: 0
@@ -51,8 +49,10 @@ nav {
 .about_caption {
     display: inline-block;
     width: 361px;
-    height: 83px;
-    background-image: url("./images/about/about_caption.png");
+    height: 72px;
+    padding-top: 14px;
+    font: 44px FiraSans-Bold, sans-serif;
+    text-align: center;
 }
 
 .about_text {
@@ -68,10 +68,12 @@ nav {
 
 .stages_caption {
     display: inline-block;
-    background-image: url("./images/stages/stages_caption.png");
     width: 594px;
     height: 83px;
-    margin-bottom: 115px;
+    margin: 15px 0 106px 48px;
+
+    font: 44px FiraSans-Bold, sans-serif;
+    text-align: center;
 }
 
 .stages_description {
@@ -230,9 +232,49 @@ nav {
 
 .specinstrument_caption {
     display: inline-block;
-    background-image: url("./images/specinstrument/specinstrument_caption.png");
     width: 451px;
     height: 83px;
+    margin: 15px 0 0 48px;
+
+    font: 44px FiraSans-Bold, sans-serif;
+    text-align: center;
+}
+
+.specinstrument_column_1, .specinstrument_column_2 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.specinstrument_content {
+    text-align: left;
+}
+
+.specinstrument_description {
+    font-size: 32px;
+    margin: 66px 145px 0;
+    text-align: left;
+}
+
+.specinstrument_columns {
+    margin: 89px 0 0 177px;
+    font: 24px PTSans-Caption, sans-serif;
+    display: inline-block;
+    vertical-align: top;
+    width: 956px;
+}
+
+.specinstrument_column_1 {
+    width: 530px;
+    margin-right: 25px;
+}
+
+.specinstrument_column_2 {
+    width: 390px;
+}
+
+.specinstrument_image {
+    display: inline-block;
+    margin-top: 63px;
 }
 
 .contacts {
@@ -241,10 +283,13 @@ nav {
 
 .contacts_caption {
     display: inline-block;
-    background-image: url("./images/contacts/contacts_caption.png");
     width: 381px;
     height: 83px;
-    margin-bottom: 65px;
+    margin: 15px 0 55px 48px;
+
+    color: #0d81f3;
+    font: 44px FiraSans-Bold, sans-serif;
+    text-align: center;
 }
 
 .contacts_text {

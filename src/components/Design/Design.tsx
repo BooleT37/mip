@@ -18,7 +18,7 @@ export default class Design extends React.Component<undefined, IDesignState> {
         super();
 
         this.state = {
-            isShown: false,
+            isShown: true,
             left: 0,
             top: 0,
             opacity: 0.5,

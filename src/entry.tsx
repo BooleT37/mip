@@ -10,8 +10,10 @@ import "./BaseLayout.less";
 import "src/fonts/PTSans-Web-Regular";
 import "src/fonts/PTSans-Bold";
 import "src/fonts/PTSans-BoldItalic";
+import "src/fonts/PTSans-Caption";
 import "src/fonts/FiraSans-Regular";
 import "src/fonts/FiraSans-Bold";
+// import "src/fonts/exo2-extralight";
 
 interface ModalState {
     opened: boolean;
@@ -51,10 +53,6 @@ function setUpAutoscrollers() {
 
     var links = document.getElementsByClassName("nav_link");
     Array.from(links).forEach(function (el, i) {
-        el.addEventListener("click", scrollTo.bind(null, el.getAttribute('data-scrollTo')));
+        el.addEventListener("click", scrollTo.bind(null, el.getAttribute("data-scrollTo")));
     });
-}
-
-function setTileBackgrounds() {
-    
 }

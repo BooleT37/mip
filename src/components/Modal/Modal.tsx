@@ -1,5 +1,6 @@
 import * as React from "react";
-import * as CustomScroll from 'react-custom-scroll';
+import * as CustomScroll from "react-custom-scroll";
+import * as velocityAnimate from "velocity-animate";
 import "react-custom-scroll/src/main/customScroll.css";
 import "./Modal.customScroll.css";
 
@@ -19,6 +20,7 @@ export default class Modal extends React.Component<undefined, State> {
         this.renderThumb = this.renderThumb.bind(this);
         this.renderTrack = this.renderTrack.bind(this);
     }
+    private rootNode: HTMLDivElement;
     state: State = {
         opened: false,
         backgroundLoaded: false,
@@ -30,6 +32,11 @@ export default class Modal extends React.Component<undefined, State> {
     componentWillUpdate(_: any, nextState: State) {
         if (nextState.opened && !this.state.backgroundLoaded) {
             this.loadBackground();
+        }
+    }
+    componentDidUpdate() {
+        if (this.state.opened && this.state.backgroundLoaded) {
+            velocityAnimate(this.rootNode, "scroll", { duration: 200, offset: 130 });
         }
     }
     loadBackground() {
@@ -64,7 +71,7 @@ export default class Modal extends React.Component<undefined, State> {
     }
     render() {
         return this.state.opened && this.state.backgroundLoaded ? (
-            <div className={styles.root}>
+            <div className={styles.root} ref={node => { this.rootNode = node }}>
                 <div className={styles.close} onClick={this.close}></div>
                 <div className={styles.caption}>
                     МАТЕРИАЛ И СПОСОБ ИСПОЛЬЗОВАНИЯ САМОРАЗРУШАЮЩЕЙСЯ ОБОЛОЧКИ
