@@ -95,8 +95,8 @@ export default class TileDataJsonValidator {
     }
 
     private static validateBackgroundColor(backgroundColor: string): ValidationResult {
-        var availibleColors = new Set(["Blue", "Red", "Green"]);
-        if (!availibleColors.has(backgroundColor)) {
+        var availibleColors = ["Blue", "Red", "Green"];
+        if (availibleColors.indexOf(backgroundColor) === -1) {
             return {
                 error: true,
                 errorMessage: `Свойство \"backgroundFilename\" должно быть одним из значений `
