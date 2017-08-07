@@ -130,11 +130,11 @@ export default class TileDataJsonValidator {
     }
 
     private static validateFontSize(fontSize: string): ValidationResult {
-        const availibleFontSizes = new Set(["small", "medium", "big"]);
+        const availibleFontSizes = ["small", "medium", "big"];
         if (!fontSize) {
             return { error: false };
         }
-        if (!availibleFontSizes.has(fontSize)) {
+        if (availibleFontSizes.indexOf(fontSize) === -1) {
             return {
                 error: true,
                 errorMessage: `Свойство \"fontSize\" должно быть одним из значений `
