@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/classnames": "^2.2.0",
     "@types/express": "^4.0.36",
+    "@types/log4js": "0.0.32",
     "@types/node": "^8.0.17",
     "@types/react": "^15.6.0",
     "@types/react-dom": "^15.5.1",
@@ -34,6 +35,7 @@
     "file-loader": "^0.11.2",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "log4js": "^2.3.3",
     "observable": "^2.1.4",
     "react": "^15.6.1",
     "react-custom-scroll": "^2.0.1",

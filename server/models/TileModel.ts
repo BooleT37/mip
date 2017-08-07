@@ -1,6 +1,6 @@
 import { TileIcon } from "./Enums";
 
-type BackgroundColor = "Blue" | "Red" | "Green";
+export type BackgroundColor = "Blue" | "Red" | "Green";
 
 interface Icon {
     name: string;

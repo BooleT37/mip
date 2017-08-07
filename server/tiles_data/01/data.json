@@ -2,10 +2,10 @@
     "tile": {
         "backgroundFilename": "6.png",
         "backgroundColor": "Blue",
-        "icons": [ "metallurgy", "mech" ],
-        "title": "ЛИГАТУРЫ ДЛЯ АЛЮМИНИЕВЫХ СПЛАВОВ"
+        "icons": [ "Metallurgy", "Mech" ],
+        "caption": "ЛИГАТУРЫ ДЛЯ АЛЮМИНИЕВЫХ СПЛАВОВ"
     },
-    "data": {
+    "content": {
         "title": "Винтовой имплантат для остеосинтеза шейки бедренной кости (патент РФ 2582980)."
     }
 }
