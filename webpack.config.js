@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -90,7 +91,12 @@ const config = {
         options: fileLoaderSettings
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.DEVELOPEMENT": JSON.stringify(IS_DEVELOPEMENT)
+    })
+  ]
 };
 
 if (!IS_DEVELOPEMENT) {

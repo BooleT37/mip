@@ -4,6 +4,7 @@ const styles = require("./Modal.less");
 
 interface State {
     opened: boolean;
+    backgroundLoaded: boolean;
     tileId?: number;
 }
 
@@ -15,16 +16,27 @@ export default class Modal extends React.Component<undefined, State> {
     }
     state: State = {
         opened: false,
+        backgroundLoaded: false,
         tileId: 1
     }
     componentDidMount() {
         (window as any)._modalState((newState: State) => { this.setState(newState); });
     }
+    componentWillUpdate(_: any, nextState: State) {
+        if (nextState.opened && !this.state.backgroundLoaded) {
+            this.loadBackground();
+        }
+    }
+    loadBackground() {
+        const img = document.createElement("img");
+        img.src = require("./images/background.png");
+        img.onload = () => { this.setState({ backgroundLoaded: true })}
+    }
     close() {
         this.setState({ opened: false });
     }
     render() {
-        return this.state.opened ? (
+        return this.state.opened && this.state.backgroundLoaded ? (
             <div className={styles.root}>
                 <div className={styles.close} onClick={this.close}></div>
                 <div className={styles.caption}>

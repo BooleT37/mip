@@ -1,6 +1,7 @@
 body {
-    background: url("./images/background.jpg");
+    background: url("./images/background.jpg") no-repeat;
     min-width: 1640px;
+    max-width: 1920px;
     min-height: 5189px; /* TODO: удалить */
     color: white;
     font: 24px PTSans-Web-Regular, sans-serif;
@@ -21,7 +22,8 @@ nav {
     padding: 51px 156px 0 0;
 }
 
-a.nav_link {
+.nav_link {
+    cursor: pointer;
     color: white;
     font-size: 27px;
     text-decoration: none;
@@ -43,11 +45,11 @@ a.nav_link {
 
 .about {
     min-height: 1115px;
+    padding: 120px 0 0 136px;
 }
 
 .about_caption {
     display: inline-block;
-    margin: 120px 0 0 136px;
     width: 361px;
     height: 83px;
     background-image: url("./images/about/about_caption.png");
@@ -55,7 +57,7 @@ a.nav_link {
 
 .about_text {
     font-size: 27px;
-    margin: 191px 0 0 140px;
+    margin: 191px 0 0 4px;
     max-width: 950px;
 }
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as Observable from "observable";
+import * as velocityAnimate from "velocity-animate";
 import Design from "src/components/Design/Design";
 import Modal from "src/components/Modal/Modal";
 
@@ -20,7 +21,7 @@ interface ModalState {
 //Observable - херовая библиотека, но для этого маленького куска её хватит
 const modalState: Observable = Observable({
     opened: false,
-    pageId: 1
+    tileId: 1
 });
 function openModal(tileId: number) {
     modalState({ opened: true, tileId });
@@ -35,5 +36,24 @@ for (let tile of Array.from(tiles)) {
 (window as any)._modalState = modalState;
 (window as any)._openModal = openModal;
 
-ReactDOM.render(<Design/>, document.getElementById("design-react-root"));
+if (process.env.DEVELOPEMENT.toString() === (true).toString()) {
+    ReactDOM.render(<Design/>, document.getElementById("design-react-root"));
+}
 ReactDOM.render(<Modal/>, document.getElementById("modal-react-root"));
+
+setUpAutoscrollers();
+
+function setUpAutoscrollers() {
+    function scrollTo(idScrollTo) {
+        var scrollToElement = document.getElementById(idScrollTo);
+        // var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        // var navElementHeightHalf = 91;
+        // var offset = -(h / 2 - navElementHeightHalf);
+        velocityAnimate(scrollToElement, "scroll", { easing: "ease", offset: -50 });
+    }
+
+    var links = document.getElementsByClassName("nav_link");
+    Array.from(links).forEach(function (el, i) {
+        el.addEventListener("click", scrollTo.bind(null, el.getAttribute('data-scrollTo')));
+    });
+}
