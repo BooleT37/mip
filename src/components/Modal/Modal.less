@@ -32,7 +32,7 @@
         text-align: left;
     }
 
-    .photoPanel, .text {
+    .photoPanel, .textContainer {
         display: inline-block;
         vertical-align: top;
     }
@@ -79,14 +79,30 @@
         padding-top: 10px;
     }
 
-    .text {
-        max-width: 945px;
+    .textContainer {
+        width: 1073px;
         margin-top: 74px;
+    }
+
+    .text {
+        max-height: 610px;
+        padding-right: 142px;
         font: 21px PTSans-Web-Regular, sans-serif;
         text-align: justify;
-
         p {
             text-indent: 45px;
         }
+    }
+
+    .scrollThumb {
+        width: 61px;
+        height: 87px;
+        background: url(../Modal/images/scroll-thumb.png) no-repeat;
+    }
+
+    .scrollTrack {
+        width: 85px;
+        height: 898px;
+        background: url(../Modal/images/scroll-track.png) no-repeat;
     }
 }

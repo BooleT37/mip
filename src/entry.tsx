@@ -36,7 +36,7 @@ for (let tile of Array.from(tiles)) {
 (window as any)._modalState = modalState;
 (window as any)._openModal = openModal;
 
-if (process.env.DEVELOPEMENT.toString() === (true).toString()) {
+if (process.env.DEVELOPEMENT && process.env.DEVELOPEMENT.toString() === (true).toString()) {
     ReactDOM.render(<Design/>, document.getElementById("design-react-root"));
 }
 ReactDOM.render(<Modal/>, document.getElementById("modal-react-root"));
@@ -46,9 +46,6 @@ setUpAutoscrollers();
 function setUpAutoscrollers() {
     function scrollTo(idScrollTo) {
         var scrollToElement = document.getElementById(idScrollTo);
-        // var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        // var navElementHeightHalf = 91;
-        // var offset = -(h / 2 - navElementHeightHalf);
         velocityAnimate(scrollToElement, "scroll", { easing: "ease", offset: -50 });
     }
 
@@ -56,4 +53,8 @@ function setUpAutoscrollers() {
     Array.from(links).forEach(function (el, i) {
         el.addEventListener("click", scrollTo.bind(null, el.getAttribute('data-scrollTo')));
     });
+}
+
+function setTileBackgrounds() {
+    
 }

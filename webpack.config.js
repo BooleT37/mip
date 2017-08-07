@@ -73,7 +73,7 @@ const config = {
       {
         test: /\.css$/,
         use: cssLoaders,
-        include: [path.resolve(__dirname, "src")]
+        include: [path.resolve(__dirname, "src"), path.resolve(__dirname, "node_modules/react-custom-scroll/src/main")]
       },
       {
         test: /\.less$/,

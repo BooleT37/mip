@@ -56,7 +56,7 @@
     <div class="stages_tiles">
         <% let i = 1; %>
         <% for (let tile of model.tiles) { %><!--
-         --><div class="stages_tile stages_tile_background_<%= tile.backgroundType.toString() %>" data-id="<%= i %>">
+         --><div class="stages_tile" data-id="<%= i %>" style="background: url('/images/tile_backgrounds/<%= tile.backgroundFilename %>')">
                 <div class="stages_tile_color_overlay stages_tile_color_overlay_<%= tile.backgroundColor.toLowerCase() %>">
                     <div class="stages_tile_icons">
                         <% for (let icon of tile.icons) { %>

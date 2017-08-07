@@ -1,0 +1,27 @@
+.modal_customScroll .custom-scroll .custom-scrollbar {
+    width: 85px;
+    height: 898px;
+    background: url(./images/scroll-track.png);
+}
+
+/* .modal_customScroll .custom-scroll .inner-handle {
+    width: 61px;
+    height: 87px;
+    margin: 0 auto;
+    background: url(./images/scroll-thumb.png);
+} */
+
+ .modal_customScroll .custom-scroll .inner-handle {
+    width: 17px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #0068ff;
+    border-radius: 8px;
+    border-left: solid 1px #0055ce;
+    border-right: solid 1px #0055ce;
+} 
+
+.modal_customScroll .custom-scroll .custom-scrollbar {
+    opacity: 1;
+    transition: none;
+}

@@ -1,6 +1,5 @@
 import { TileIcon } from "./Enums";
 
-type BackgroundType = 1 | 2 | 3 | 4 | 5 | 6;
 type BackgroundColor = "Blue" | "Red" | "Green";
 
 interface Icon {
@@ -15,7 +14,7 @@ interface IconCaptions {
 type FontSize = "big" | "medium" | "small"
 
 export default class TileModel {
-    backgroundType: BackgroundType;
+    backgroundFilename: string;
     backgroundColor: BackgroundColor;
     icons: Icon[];
     caption: string;
@@ -31,13 +30,13 @@ export default class TileModel {
     }
 
     constructor(
-        backgroundType: BackgroundType,
+        backgroundFilename: string,
         backgroundColor: BackgroundColor,
         icons: TileIcon[],
         caption: string,
         fontSize: FontSize = "big"
     ) {
-        this.backgroundType = backgroundType;
+        this.backgroundFilename = backgroundFilename;
         this.backgroundColor = backgroundColor;
         this.icons = icons.map(icon => { return { name: icon.toString(), caption: this.ICON_CAPTIONS[icon.toString()]} });
         this.caption = caption;

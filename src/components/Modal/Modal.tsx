@@ -1,4 +1,7 @@
 import * as React from "react";
+import * as CustomScroll from 'react-custom-scroll';
+import "react-custom-scroll/src/main/customScroll.css";
+import "./Modal.customScroll.css";
 
 const styles = require("./Modal.less");
 
@@ -13,6 +16,8 @@ export default class Modal extends React.Component<undefined, State> {
         super();
 
         this.close = this.close.bind(this);
+        this.renderThumb = this.renderThumb.bind(this);
+        this.renderTrack = this.renderTrack.bind(this);
     }
     state: State = {
         opened: false,
@@ -35,6 +40,28 @@ export default class Modal extends React.Component<undefined, State> {
     close() {
         this.setState({ opened: false });
     }
+    renderThumb(props) {
+        const thumbStyle = {
+            backgroundColor: "red"
+        };
+        const style = Object.assign({}, props.style, thumbStyle);
+        return (
+            <div
+                style={style}
+                {...props}/>
+        );
+    }
+    renderTrack(props) {
+        const trackStyle = {
+            backgroundColor: "green"
+        };
+        const style = Object.assign({}, props.style, trackStyle);
+        return (
+            <div
+                style={style}
+                {...props}/>
+        );
+    }
     render() {
         return this.state.opened && this.state.backgroundLoaded ? (
             <div className={styles.root}>
@@ -54,7 +81,13 @@ export default class Modal extends React.Component<undefined, State> {
                             <div className={styles.arrowRight}></div>
                         </div>
                     </div>
-                    <div className={styles.text}>{LOREM_IPSUM}</div>
+                    <div className={styles.textContainer + " modal_customScroll"}>
+                        <CustomScroll>
+                            <div className={styles.text}>
+                                {LOREM_IPSUM}
+                            </div>
+                        </CustomScroll>
+                    </div>
                 </div>
             </div>
         ) : null;
@@ -104,5 +137,36 @@ const LOREM_IPSUM: (JSX.Element)[] = [
         gravida. Nullam nec turpis in nunc placerat feugiat at ut dui.
         Sed euismod felis at mauris ullamcorper rhoncus. Morbi ac aliquet
         lectus, quis ornare ex.
+    </p>,
+    <p key="5">
+        In hac habitasse platea dictumst. Sed at erat vel lacus venenatis
+        fermentum et vitae augue. Cras lorem ex, tristique vel mi at,
+        sollicitudin faucibus leo. In a eleifend augue. Morbi at gravida
+        massa. Vestibulum tortor odio, aliquam eu venenatis ac, tempus quis
+        massa. Quisque pretium efficitur tortor, vel convallis erat volutpat a.
+        Sed imperdiet sapien in ligula fermentum, vel rutrum orci imperdiet.
+        Curabitur risus tortor, dignissim sed nunc at, ullamcorper vestibulum
+        nisi. In molestie non ex non venenatis. Sed malesuada turpis ipsum, eu
+        aliquam ante rhoncus vel. Nunc ut est sodales erat tincidunt porta
+        iaculis a ipsum. Sed egestas cursus metus, et tempor ipsum dignissim
+        non. Quisque interdum porttitor urna, in porta erat.
+    </p>,
+    <p key="6">
+        Vestibulum felis massa, mollis et dolor id, aliquet rhoncus felis.
+        Duis cursus ex velit, nec suscipit lectus iaculis non. Curabitur
+        laoreet, nulla posuere sagittis molestie, nisi libero fermentum ex,
+        non vulputate ligula leo sed arcu. Phasellus commodo viverra tortor
+        vel tempus. Nunc suscipit auctor ante non imperdiet. Nunc ullamcorper
+        est quam, ac pretium massa ullamcorper id. Donec tempus posuere tellus,
+        id euismod metus viverra quis. Ut in nibh fermentum, laoreet nibh a,
+        venenatis odio. Vestibulum non quam metus.
+    </p>,
+    <p key="7">
+        Nulla ante mauris, suscipit vel lectus in, elementum mollis nisl. Morbi
+        justo dolor, imperdiet at sollicitudin nec, molestie eu est. Aliquam erat
+        volutpat. Nam sed fermentum mi. Proin a varius risus. Quisque aliquet
+        dignissim diam, vel feugiat metus volutpat in. Nunc egestas augue nec
+        convallis hendrerit. Morbi fermentum justo a molestie luctus. Quisque
+        facilisis sed libero at consequat.
     </p>
 ];
