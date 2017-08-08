@@ -13,6 +13,7 @@ import "src/fonts/PTSans-BoldItalic";
 import "src/fonts/PTSans-Caption";
 import "src/fonts/FiraSans-Regular";
 import "src/fonts/FiraSans-Bold";
+import "src/fonts/Exo2-Regular";
 // import "src/fonts/exo2-extralight";
 
 interface ModalState {
