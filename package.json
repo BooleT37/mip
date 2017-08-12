@@ -6,7 +6,7 @@
   "main": "server/server.js",
   "scripts": {
     "build": "tsc --outDir ./server-dist --sourceMap ./server/server.ts",
-    "start": "tsc --outDir ./server-dist --sourceMap ./server/server.ts && node ./server-dist/server.js",
+    "start": "tsc --outDir ./server-dist ./server/server.ts && node ./server-dist/server.js",
     "postinstall": "webpack -p",
     "webpack-watch": "set NODE_ENV=developement && webpack-dev-server",
     "watch": "set NODE_ENV=developement && nodemon -e ts,js,html,ejs --exec ts-node -- ./server/server.ts"
@@ -36,7 +36,6 @@
     "file-loader": "^0.11.2",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
-    "log4js": "^2.3.3",
     "observable": "^2.1.4",
     "react": "^15.6.1",
     "react-custom-scroll": "^2.0.1",

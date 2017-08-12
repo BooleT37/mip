@@ -1,9 +1,0 @@
-[2017-08-12 22:46:51.048] [ERROR] default - Cannot read property 'toString' of undefined
-[2017-08-12 22:58:41.764] [ERROR] default - отсутствует папка 'tiles_data' (искали по пути 'C:\Langs\node.js\MIP\tiles_data'
-
-[2017-08-12 22:59:24.515] [ERROR] default - отсутствует папка 'tiles_data' (искали по пути 'C:\Langs\node.js\MIP\tiles_data'
-
-[2017-08-12 22:59:32.473] [ERROR] default - отсутствует папка 'tiles_data' (искали по пути 'C:\Langs\node.js\MIP\tiles_data'
-
-[2017-08-12 22:59:50.821] [ERROR] default - отсутствует папка 'tiles_data' (искали по пути 'C:\Langs\node.js\MIP\tiles_data')
-

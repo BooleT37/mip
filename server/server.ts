@@ -6,7 +6,7 @@ import FileTileDao from "./dao/FileTileDao";
 import ValidationFileWriter from "./logic/ValidationFileWriter";
 import TileModel from "./models/TileModel";
 import ValidationError from "./logic/ValidationError";
-import * as log4js from "log4js";
+import Logger from "./logic/Logger";
 
 const port = process.env.PORT ? parseInt(process.env.PORT, 10) : "3000";
 const app = express();
@@ -23,12 +23,6 @@ app.get("/", (req, res) => {
   var tileDao: ITileDao = new FileTileDao();
   var validationFileWriter = new ValidationFileWriter();
   var tiles: TileModel[];
-  var logger = log4js.getLogger();
-  log4js.configure({
-    appenders: { default: { type: "file", filename: "logs.txt" } },
-    categories: { default: { appenders: ["default"], level: "error" } }
-  });
-  logger.level = "error";
   try {
     tiles = tileDao.getAll();
     validationFileWriter.removeFile();
@@ -37,7 +31,7 @@ app.get("/", (req, res) => {
     if (e instanceof ValidationError) {
       validationFileWriter.write(e.message);
     } else {
-      logger.error(e.message);
+      Logger.log(e.message);
     }
     tiles = [];
   }
