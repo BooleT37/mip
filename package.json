@@ -5,7 +5,8 @@
   "description": "Landing page for mip",
   "main": "server/server.js",
   "scripts": {
-    "start": "tsc ./server/server.ts && node ./server/server.js",
+    "build": "tsc --outDir ./server-dist --sourceMap ./server/server.ts",
+    "start": "tsc --outDir ./server-dist --sourceMap ./server/server.ts && node ./server-dist/server.js",
     "postinstall": "webpack -p",
     "webpack-watch": "set NODE_ENV=developement && webpack-dev-server",
     "watch": "set NODE_ENV=developement && nodemon -e ts,js,html,ejs --exec ts-node -- ./server/server.ts"

@@ -8,7 +8,7 @@ export interface TileJsonModel {
     backgroundColor: string;
     icons: string[];
     caption: string;
-    fontSize?: string
+    fontSize?: string;
 }
 
 export interface TileContentJsonModel {

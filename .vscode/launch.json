@@ -8,7 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch server",
-            "program": "${workspaceRoot}//server/server.js"
+            "sourceMaps": true,
+            "program": "${workspaceRoot}/server-dist/server.js"
         }
     ]
 }

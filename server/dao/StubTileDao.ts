@@ -1,6 +1,7 @@
 import ITileDao from "./ITileDao";
 import TileModel from "../models/TileModel";
 import { TileIcon } from "../models/Enums";
+import TileDataModel from "../models/TileDataModel";
 
 export default class StubTileDao implements ITileDao {
     getAll(): TileModel[] {

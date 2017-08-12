@@ -92,6 +92,9 @@ export default class TileDataJsonValidator {
                 errorMessage: "Длина свойства \"backgroundFilename\" должна быть "
             };
         }
+        return {
+            error: false
+        }
     }
 
     private static validateBackgroundColor(backgroundColor: string): ValidationResult {
