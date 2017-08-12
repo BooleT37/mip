@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Справка</title>
+  <meta name="author" content="Alexey Levin">
+  <style>
+      body {
+        margin-left: 20px;
+      }
+      .code {
+        display: inline-block;
+        font-family: monospace;
+        background-color: whitesmoke;
+      }
+      .code_keyword {
+        color: rgb(170, 17, 17);
+      }
+      .code_keyvalue {
+        color: dimgray;
+      }
+  </style>
+</head>
+<body>
+    <p>Данные тайлов лежат в папке <strong>&quot;tiles_data&quot;</strong></p>
+    <p>Внутри лежат папки - по одной на каждый тайл. Именование используется как id для каждого тайла, этот id передаётся на сервер в момент запроса информации для сожержимого плашки, так что желательно использовать максимально простые названия типа &quot;01&quot;, &quot;02&quot; и т.п.</p>
+    <p>Внутри каждой папки лежит файл <strong>&quot;data.json&quot;</strong>. Он сожержит основную информацию по тайлу. Его синтаксис:</p>
+    <div class="code">{<br />
+    &nbsp;&nbsp;<span class="code_keyword">&quot;tile&quot;</span>: {<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code_keyword">&quot;backgroundFilename&quot;</span>: <span class="code_keyvalue">&quot;строка&quot;</span>,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code_keyword">&quot;backgroundColor&quot;</span>: <span class="code_keyvalue">&quot;Blue&quot; | &quot;Red&quot; | &quot;Green&quot;</span>,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code_keyword">&quot;icons&quot;</span>: <span class="code_keyvalue">[ Icon<sup>1</sup>, Icon, ... ]</span>,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code_keyword">&quot;caption&quot;</span>: <span class="code_keyvalue">&quot;строка&quot;</span>,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code_keyword">&quot;fontSize?&quot;</span>: <span class="code_keyvalue">&quot;big&quot; | &quot;medium&quot; | &quot;small&quot;</span><br />
+    &nbsp;&nbsp;},<br />
+    &nbsp;&nbsp;<span class="code_keyword">&quot;content&quot;</span>: {<br />
+    &nbsp;&nbsp;<span class="code_keyword">&nbsp;&nbsp;&quot;title&quot;</span>: <span class="code_keyvalue">&quot;строка&quot;</span><br />
+    &nbsp;&nbsp;}<br />
+    }</div>,
+    <p>где <span class="code"><sup>1</sup><span class="code_keyword">Icon</span> = <span class="code_keyvalue">&quot;Metallurgy&quot; | &quot;Mech&quot; | &quot;Food&quot; | &quot;Oil&quot; | &quot;Medicine&quot; | &quot;Repair&quot;</span></span></p>
+    <p><span class="code"><span class="code_keyword">&quot;fontSize&quot;</span></span> - единственный необязательный параметр.
+    <p>Текст внутри плашки хранится внутри отдельного файла <strong>&quot;text.txt&quot;</strong> в той же папке.</p>
+    <p>Изображения хранятся в папке images. Названия файлов без расширения используются как подписи к ним внутри плашки.</p>
+    <p>При каждом запросе к серверу файлы (в частности, файл <strong>data.json</strong>) валидируются на корректность. Ошибки, если они есть, записываются в файл <strong>&quot;validationErrors.txt&quot;</strong>.<br/>
+    Если ошибок нет - файл не создаётся.</p>
+    <p>Ошибки сервера, если таковые возникнут, записываются в файл <strong>&quot;logs.txt&quot;</strong></p>
+</body>
+</html>
