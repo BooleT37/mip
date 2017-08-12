@@ -18,11 +18,11 @@ export default class Design extends React.Component<undefined, IDesignState> {
         super();
 
         this.state = {
-            isShown: true,
+            isShown: false,
             left: 0,
             top: 0,
             opacity: 0.5,
-            isPanelShown: true
+            isPanelShown: false
         };
 
         this.onToggleButtonClick = this.onToggleButtonClick.bind(this);

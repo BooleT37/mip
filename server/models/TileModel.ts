@@ -14,6 +14,7 @@ interface IconCaptions {
 type FontSize = "big" | "medium" | "small"
 
 export default class TileModel {
+    id: string;
     backgroundFilename: string;
     backgroundColor: BackgroundColor;
     icons: Icon[];
@@ -30,16 +31,18 @@ export default class TileModel {
     }
 
     constructor(
+        id: string,
         backgroundFilename: string,
         backgroundColor: BackgroundColor,
         icons: TileIcon[],
         caption: string,
-        fontSize: FontSize = "big"
+        fontSize: string = "big"
     ) {
+        this.id = id;
         this.backgroundFilename = backgroundFilename;
         this.backgroundColor = backgroundColor;
         this.icons = icons.map(icon => { return { name: icon.toString(), caption: this.ICON_CAPTIONS[icon.toString()]} });
         this.caption = caption;
-        this.fontSize = fontSize;
+        this.fontSize = fontSize as FontSize;
     }
 }

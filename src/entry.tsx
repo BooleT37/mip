@@ -23,16 +23,22 @@ interface ModalState {
 
 //Observable - херовая библиотека, но для этого маленького куска её хватит
 const modalState: Observable = Observable({
+    imageIndex: 0,
+    loaded: false,
     opened: false,
-    tileId: 1
+    tileId: null
 });
+
+var lastOpenedTile: number = null;
+
 function openModal(tileId: number) {
-    modalState({ opened: true, tileId });
+    modalState({ imageIndex: 0, loaded: lastOpenedTile === tileId, opened: true, tileId });
+    lastOpenedTile = tileId;
 }
 
 var tiles = document.getElementsByClassName("stages_tile");
 for (let tile of Array.from(tiles)) {
-    let id = parseInt(tile.getAttribute("data-id"), 10);
+    let id = tile.getAttribute("data-id");
     tile.addEventListener("click", openModal.bind(null, id));
 }
 

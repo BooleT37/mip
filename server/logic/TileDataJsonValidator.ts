@@ -83,7 +83,7 @@ export default class TileDataJsonValidator {
         if (backgroundFilename === null || backgroundFilename === undefined) {
             return {
                 error: true,
-                errorMessage: `Свойство "backgroundFilename" не может быть '${backgroundFilename.toString()}'`
+                errorMessage: `Свойство "backgroundFilename" не может быть '${backgroundFilename}'`
             };
         }
         if (backgroundFilename.length === 0) {

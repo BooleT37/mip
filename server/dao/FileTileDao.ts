@@ -6,16 +6,46 @@ import TileDataJsonModel from "../models/TileDataJsonModel";
 import TileDataJsonValidator from "../logic/TileDataJsonValidator";
 import JsonReader from "../logic/JsonReader";
 import ValidationInfoBuilder from "../logic/ValidationInfoBuilder";
+import TileDataModel, { TileDataImageModel } from "../models/TileDataModel";
+import ValidationError from "../logic/ValidationError";
 
 export default class FileTileDao implements ITileDao {
     private readonly TILES_DATA_DIR_NAME: string = "tiles_data";
     private readonly TILE_DATA_FILENAME: string = "data.json";
     private readonly TILES_DATA_DIR: string = path.resolve(process.cwd(), `${this.TILES_DATA_DIR_NAME}`);
     private readonly TILE_IMAGES_DIR_NAME: string = "images";
+    private readonly TILE_TEXT_FILE_NAME: string = "text.txt";
     private validationInfoBuilder: ValidationInfoBuilder;
 
     constructor() {
         this.validationInfoBuilder = new ValidationInfoBuilder();
+    }
+    getForId(id: string): TileDataModel {
+        const folder: string = path.join(this.TILES_DATA_DIR, id);
+        const dataFilePath = path.join(folder, this.TILE_DATA_FILENAME);
+        var tileDataJson: TileDataJsonModel = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
+        const title: string = tileDataJson.content.title;
+
+        const textFilePath = path.join(folder, this.TILE_TEXT_FILE_NAME);
+        var text: string = "";
+        try {
+            text = fs.readFileSync(textFilePath, "utf8");
+        } catch(e) {
+            //если text.txt отсутствует - ничего страшного
+        }
+
+        const images: TileDataImageModel[] = [];
+
+        var imageFiles: string[];
+        var imagesDir = path.join(folder, this.TILE_IMAGES_DIR_NAME);
+        try {
+            imageFiles = fs.readdirSync(imagesDir, "utf8");
+            for (let imageName of imageFiles) {
+                images.push(new TileDataImageModel(imageName.substring(0, imageName.lastIndexOf(".")), imageName));
+            }
+        } catch(e) {
+        }
+        return new TileDataModel(id, title, text, images);
     }
     getAll(): TileModel[] {
         const tiles: TileModel[] = [];
@@ -36,7 +66,7 @@ export default class FileTileDao implements ITileDao {
                         var tileDataJson: TileDataJsonModel = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
                         var validationResult = TileDataJsonValidator.validate(tileDataJson);
                         if (!validationResult.error) {
-                            var tile = JsonReader.TileFromJson(tileDataJson);
+                            var tile = JsonReader.TileFromJson(dir, tileDataJson);
                             tiles.push(tile);
                         } else {
                             this.validationInfoBuilder.addFileError(
@@ -57,6 +87,6 @@ export default class FileTileDao implements ITileDao {
                 return tiles;
             }
         }
-        throw new Error(this.validationInfoBuilder.getValidationInfo());
+        throw new ValidationError(this.validationInfoBuilder.getValidationInfo());
     }
 }

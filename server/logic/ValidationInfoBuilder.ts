@@ -51,9 +51,9 @@ export default class ValidationInfoBuilder {
         }
         for (let key in this.fileErrors) {
             if (this.fileErrors.hasOwnProperty(key)) {
-                res = this.addLineWithIndent(res, `Ошибки в файле ${key}:`, 1);
+                res = this.addLine(res, `Ошибки в файле ${key}:`);
                 for (let error of this.fileErrors[key]) {
-                    res = this.addLineWithIndent(res, error, 2)
+                    res = this.addLineWithIndent(res, error, 1)
                 }
             }
         }
