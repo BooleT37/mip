@@ -1,0 +1,11 @@
+{
+    "tile": {
+        "backgroundFilename": "6.png",
+        "backgroundColor": "Blue",
+        "icons": [ "Metallurgy", "Mech" ],
+        "caption": "ОСТЕОСИНТЕЗ ШЕЙКИ БЕДРА"
+    },
+    "content": {
+        "title": "ОСТЕОСИНТЕЗ ШЕЙКИ БЕДРА"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "tile": {
+        "backgroundFilename": "2.png",
+        "backgroundColor": "Blue",
+        "icons": [ "Food" ],
+        "caption": "ОБОРУДОВАНИЕ ДЛЯ ПИЩЕВОЙ ПРОМЫШЛЕННОСТИ"
+    },
+    "content": {
+        "title": "ОБОРУДОВАНИЕ ДЛЯ ПИЩЕВОЙ ПРОМЫШЛЕННОСТИ"
+    }
+}

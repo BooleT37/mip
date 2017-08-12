@@ -1,0 +1,11 @@
+{
+    "tile": {
+        "backgroundFilename": "6.png",
+        "backgroundColor": "Blue",
+        "icons": [ "Metallurgy", "Mech" ],
+        "caption": "ЛИГАТУРЫ ДЛЯ АЛЮМИНИЕВЫХ СПЛАВОВ"
+    },
+    "content": {
+        "title": "ЛИГАТУРЫ ДЛЯ АЛЮМИНИЕВЫХ СПЛАВОВ"
+    }
+}

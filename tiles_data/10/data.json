@@ -1,0 +1,12 @@
+{
+    "tile": {
+        "backgroundFilename": "3.png",
+        "backgroundColor": "Red",
+        "icons": [ "Oil", "Metallurgy", "Repair" ],
+        "caption": "НЕСТАНДАРТНОЕ ОБОРУДОВАНИЕ, СПЕЦИНСТРУМЕНТ И ОСНАСТКА",
+        "fontSize": "small"
+    },
+    "content": {
+        "title": "НЕСТАНДАРТНОЕ ОБОРУДОВАНИЕ, СПЕЦИНСТРУМЕНТ И ОСНАСТКА"
+    }
+}

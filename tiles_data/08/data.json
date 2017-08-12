@@ -1,0 +1,11 @@
+{
+    "tile": {
+        "backgroundFilename": "1.png",
+        "backgroundColor": "Green",
+        "icons": [ "Metallurgy", "Oil" ],
+        "caption": "ИНТЕЛЛЕКТУАЛЬНАЯ СТАЛЬ С ЭФФЕКТОМ ПАМЯТИ"
+    },
+    "content": {
+        "title": "ИНТЕЛЛЕКТУАЛЬНАЯ СТАЛЬ С ЭФФЕКТОМ ПАМЯТИ"
+    }
+}

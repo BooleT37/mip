@@ -1,0 +1,11 @@
+{
+    "tile": {
+        "backgroundFilename": "5.png",
+        "backgroundColor": "Red",
+        "icons": [ "Medicine" ],
+        "caption": "ОСТЕОСИНТЕЗ ШЕЙКИ БЕДРА"
+    },
+    "content": {
+        "title": "Винтовой имплантат для остеосинтеза шейки бедренной кости (патент РФ 2582980)."
+    }
+}

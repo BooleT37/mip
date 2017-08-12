@@ -1,0 +1,11 @@
+{
+    "tile": {
+        "backgroundFilename": "4.png",
+        "backgroundColor": "Red",
+        "icons": [ "Repair" ],
+        "caption": "ПОКРЫТИЕ РЕЖУЩЕГО ИНСТРУМЕНТА"
+    },
+    "content": {
+        "title": "ПОКРЫТИЕ РЕЖУЩЕГО ИНСТРУМЕНТА"
+    }
+}
