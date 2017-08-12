@@ -54,7 +54,7 @@ export default class FileTileDao implements ITileDao {
         try {
             dirs = fs.readdirSync(this.TILES_DATA_DIR, "utf8");
         } catch(e) {
-            this.validationInfoBuilder.addBaseError(`отсутствует папка '${this.TILES_DATA_DIR_NAME}' (искали по пути '${this.TILES_DATA_DIR}'`);
+            this.validationInfoBuilder.addBaseError(`отсутствует папка '${this.TILES_DATA_DIR_NAME}' (искали по пути '${this.TILES_DATA_DIR}')`);
         }
 
         if (dirs !== null) {
