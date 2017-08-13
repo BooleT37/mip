@@ -31,7 +31,6 @@ export default class Modal extends React.Component<undefined, State> {
         this.shiftImageRight = this.shiftImageRight.bind(this);
     }
     private rootNode: HTMLDivElement;
-    private readonly IMAGE_NAMES: string[] = ["1.jpg", "2.jpg", "3.jpg"];
     state: State = {
         opened: false,
         backgroundLoaded: false,
@@ -164,7 +163,7 @@ export default class Modal extends React.Component<undefined, State> {
                                         { [styles.hidden]: this.state.tileData === null
                                             || !this.state.tileData.images
                                             || this.state.tileData.images.length === 0
-                                            || this.state.imageIndex === this.IMAGE_NAMES.length - 1 }
+                                            || this.state.imageIndex === this.state.tileData.images.length - 1 }
                                         )}
                                     onClick={this.shiftImageRight}>
                                 </div>
