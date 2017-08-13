@@ -27,8 +27,7 @@ app.get("/", (req, res) => {
     tiles = tileDao.getAll();
     validationFileWriter.removeFile();
   } catch(e) {
-    console.log(e);
-    if (e instanceof ValidationError) {
+    if (e.isValidationError) {
       validationFileWriter.write(e.message);
     } else {
       Logger.log(e.message);

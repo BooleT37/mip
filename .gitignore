@@ -4,3 +4,4 @@ server-dist/
 logs.txt
 npm-debug.log
 logs.txt
+validationErrors.txt

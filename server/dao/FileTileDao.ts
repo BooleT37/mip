@@ -63,7 +63,16 @@ export default class FileTileDao implements ITileDao {
                 if (fs.statSync(currentPath).isDirectory()) {
                     const dataFilePath = path.join(currentPath, this.TILE_DATA_FILENAME);
                     if (fs.existsSync(dataFilePath)) {
-                        var tileDataJson: TileDataJsonModel = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
+                        var tileDataJson: TileDataJsonModel;
+                        try {
+                            tileDataJson = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
+                        } catch (e) {
+                            this.validationInfoBuilder.addFileError(
+                                `${this.TILES_DATA_DIR_NAME}/${dir}/${this.TILE_DATA_FILENAME}`,
+                                e
+                            );
+                            continue;
+                        }
                         var validationResult = TileDataJsonValidator.validate(tileDataJson);
                         if (!validationResult.error) {
                             var tile = JsonReader.TileFromJson(dir, tileDataJson);

@@ -29,7 +29,7 @@ export default class TileDataJsonValidator {
         var result: ValidationResult = { error: false };
         var errorMessages: string[] = [];
 
-        let validationResult: ValidationResult = this.validateBackgroundFilename(tile.backgroundFilename.toString());
+        let validationResult: ValidationResult = this.validateBackgroundFilename(tile.backgroundFilename);
         if (validationResult.error) {
             errorMessages.push(validationResult.errorMessage);
             result.error = true;
